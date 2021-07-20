@@ -4,7 +4,7 @@
 ;; sync' after modifying this file!
 
 ;;(load `local_config.el)
-(load-file "~/.doom.d/local_config.el")
+;; (load-file "~/.doom.d/local_config.el")
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -115,3 +115,7 @@
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
 
 (require 'vlf-setup)
+(require 'org-download)
+
+(add-hook 'dired-mode-hook 'org-download-enable)
+

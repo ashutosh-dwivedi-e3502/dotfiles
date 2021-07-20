@@ -65,3 +65,5 @@
 (package! jedi)
 (package! pyimpsort)
 (package! pyimport)
+(package! org-download)
+(package! org-super-agenda)
