@@ -67,3 +67,8 @@
 (package! pyimport)
 (package! org-download)
 (package! org-super-agenda)
+(package! speed-type)
+(package! sql-indent)
+(package! diffview)
+(package! chatgpt-shell
+  :recipe (:host github :repo "xenodium/chatgpt-shell"))

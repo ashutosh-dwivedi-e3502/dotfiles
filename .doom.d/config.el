@@ -87,17 +87,21 @@
 ;;(setq-hook! 'scala-mode-hook +format-with 'scalafmt)
 ;; (add-hook 'scala-mode-hook #'format-all-mode)
 ;; (setq-hook! 'scala-mode-hook +format-with-lsp t)
+;;
+;; (setq py-isort-options '("--quiet --color"))
+
+(setq +python-ipython-repl-args '("-i" "--simple-prompt" "--no-color-info"))
+(setq +python-jupyter-repl-args '("--simple-prompt"))
+(setq python-shell-completion-native-enable nil)
 
 (add-hook 'python-mode-hook (lambda ()
                               (sphinx-doc-mode t)
                               (elpy-enable)
-                              (python-black-on-save-mode)
+                              (python-black-on-save-mode)))
+                              ;; (py-isort-before-save)))
                               ;; (pyimpsort-buffer)
-                              ;; (pyimport-remove-unused)
-                              ))
+                              ;; (pyimport-remove-unused)))
 
-(setq +python-ipython-repl-args '("-i" "--simple-prompt" "--no-color-info"))
-(setq +python-jupyter-repl-args '("--simple-prompt"))
 
 (setq comint-process-echoes t)
 
@@ -119,3 +123,5 @@
 
 (add-hook 'dired-mode-hook 'org-download-enable)
 
+(after! chatgpt-shell
+  (setq chatgpt-shell-openai-key "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"))
