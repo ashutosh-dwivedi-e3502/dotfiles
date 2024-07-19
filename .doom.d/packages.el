@@ -72,3 +72,4 @@
 (package! diffview)
 (package! chatgpt-shell
   :recipe (:host github :repo "xenodium/chatgpt-shell"))
+(package! org-journal)
