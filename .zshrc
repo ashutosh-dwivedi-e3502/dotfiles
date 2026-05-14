@@ -70,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    osx
+    macos
     python
     z
     zsh-autosuggestions
@@ -130,55 +130,45 @@ eval "$(direnv hook $SHELL)"
 path+=(~/.emacs.d/bin/)
 path+=(/usr/local/bin/)
 
-# add python3.7 installed via brew to the path
-# as the pyenv install for the same fails after bigsur upgrade
-# remove this and uninstall brew python@3.7 once pyenv fixes their scripts
-# the openblas variable is also for numpy installation on the this python
-path+=(/usr/local/opt/python@3.7/bin/)
-# export
 export PATH
-
-# Configuration for virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
 
 # for getting older java for scala / sbt
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 # export OPENBLAS=$(brew --prefix openblas)
-
-# Created by `userpath` on 2021-01-05 06:49:16
-export PATH="$PATH:/Users/$(whoami)/.local/bin"
-
-
-# big sur update
-# zlib for building packages
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-
-# bzip2 for building packages
-export LDFLAGS="-L/usr/local/opt/bzip2/lib"
-export CPPFLAGS="-I/usr/local/opt/bzip2/include"
-
-
-export SCALA_HOME=/usr/local/opt/scala/idea
+# conda init "$(basename "${SHELL}")"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Created by `userpath` on 2021-01-05 06:49:16
+export PATH="$PATH:/Users/$(whoami)/.local/bin"
+
+
 eval "$(pyenv init -)"
-fpath+=/usr/local/share/zsh/site-functions
+fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -Uz compinit && compinit
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ashutoshdwivedi/.cache/lm-studio/bin"
+
+# Added by Windsurf
+export PATH="/Users/ashutoshdwivedi/.codeium/windsurf/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/ashutoshdwivedi/.antigravity/antigravity/bin:$PATH"
+
+# Doom Emacs
+export PATH="$HOME/.config/emacs/bin:$PATH"

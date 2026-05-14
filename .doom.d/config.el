@@ -112,10 +112,10 @@
   (setq +python-ipython-repl-args '("-i" "--simple-prompt" "--no-color-info"))
   (setq python-shell-interpreter "ipython"))
 
-(setenv "WORKON_HOME" "/usr/local/Caskroom/miniconda/base/envs/")
+(setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniconda/base/envs/")
 
 (custom-set-variables
- '(conda-anaconda-home "/usr/local/Caskroom/miniconda/base/"))
+ '(conda-anaconda-home "/opt/homebrew/Caskroom/miniconda/base/"))
 
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
